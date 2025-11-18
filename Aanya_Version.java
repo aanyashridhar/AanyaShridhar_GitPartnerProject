@@ -39,4 +39,23 @@ public class Aanya_Version {
 		}
 		return -1;
 	}
+	public static int FirstOddNeighborsSum33(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+
+                int val = arr[i][j];
+                if (val % 2 == 0) continue;
+
+                int sum = 0;
+
+                if (i > 0) sum += arr[i - 1][j];
+                if (i < arr.length - 1) sum += arr[i + 1][j];
+                if (j > 0) sum += arr[i][j - 1];
+                if (j < arr[0].length - 1) sum += arr[i][j + 1];
+
+                if (sum > 33) return val;
+            }
+        }
+        return -1;
+    }
 }
